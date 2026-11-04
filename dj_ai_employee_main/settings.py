@@ -137,4 +137,8 @@ MAILERS = {
 LOGIN_REDIRECT_URL = "/orders/"
 LOGOUT_REDIRECT_URL = "/login/"
 LOGIN_URL = "/login/"
+
+
+GEMINI_API_KEY=config("GEMINI_API_KEY")
+GEMINI_MODEL=config("GEMINI_MODEL")
  

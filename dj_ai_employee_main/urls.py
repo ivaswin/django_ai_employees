@@ -25,4 +25,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(),name='logout'),
     
     path('orders/',include('orders.urls')),
+    # support
+    path('support/',include('support.urls'))
+
 ]
