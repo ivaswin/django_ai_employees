@@ -146,4 +146,8 @@ GEMINI_API_KEY=config("GEMINI_API_KEY")
 GEMINI_MODEL=config("GEMINI_MODEL")
 
 STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
+
+CSRF_TRUSTED_ORIGINS ={
+    "https://djangoaiemployees-production-1714.up.railway.app"
+}
  
