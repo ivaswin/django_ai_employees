@@ -4,7 +4,7 @@
 
       <!-- Header -->
       <div class="d-flex align-items-center gap-3 mb-4">
-        <a href="#" class="text-muted text-decoration-none" style="font-size:13px;">← Back</a>
+        <a href="{% url 'dashboard' %}" class="text-muted text-decoration-none" style="font-size:13px;">← Back</a>
         <h5 class="fw-bold mb-0">Conversation #{{conversation.id}}</h5>
         <span class="text-muted" style="font-size:13px;">{{conversation.user.first_name}} {{conversation.user.last_name}} · Order #{{conversation.order.id}} · {{conversation.order.product_name}}</span>
       </div>

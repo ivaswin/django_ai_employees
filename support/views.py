@@ -18,7 +18,7 @@ def chat(request,order_id):
             return JsonResponse({"error":"empty message"},status=400)
         order = get_object_or_404(Order, id=order_id, user=request.user)
         conversation,created = Conversation.objects.get_or_create(user=request.user,order=order)
-       
+        # print("----------------conversation craeted ----------")
         Message.objects.create(conversation=conversation,role="user",content=user_message)
         event ={"type":"user_message","message":user_message,"name":request.user.first_name}
         publish(conversation.id,event)
