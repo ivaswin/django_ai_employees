@@ -7,6 +7,7 @@ from .models import Conversation,Message
 from .agents import run_support_agent
 from django.contrib.admin.views.decorators import staff_member_required
 from .event_queue import subscribe,unsubscribe,publish
+from .langchain_agents import run_support_agent_langchain
 # Create your views here.
 
 def chat(request,order_id):
@@ -23,7 +24,9 @@ def chat(request,order_id):
         event ={"type":"user_message","message":user_message,"name":request.user.first_name}
         publish(conversation.id,event)
         # send user message to LLM
-        reply = run_support_agent(user_message,conversation.id,order.id,request.user.id)
+        #reply = run_support_agent(user_message,conversation.id,order.id,request.user.id)
+        #--- send message to llm with langchain ---
+        reply = run_support_agent_langchain(user_message,conversation.id,order.id,request.user.id)
         # store the LLM replay
         Message.objects.create(conversation=conversation,role="assistant",content=reply)
         # time.sleep(4)
